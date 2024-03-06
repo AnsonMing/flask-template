@@ -1,0 +1,54 @@
+# flask + mysql + myadmin
+version: "3.8"
+
+services:
+  flask:
+    build:
+      context: ./flask
+      dockerfile: dockerfile
+    environment:
+      - MYSQL_HOST=mysql-server
+    networks:
+      - devenv-network
+    ports:
+      - 8080:5000
+    depends_on:
+      - mysql-server
+    links:
+      - mysql-server
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - ./code:/app
+    # run app.py
+    command: /bin/bash -c "cd app; flask run -h 0.0.0.0;"
+
+  mysql-server:
+    image: mysql:8.3
+    networks:
+      - devenv-network
+    restart: always
+    environment:
+      # set root password
+      MYSQL_ROOT_PASSWORD: strongPassw0rd
+      # create database
+      MYSQL_DATABASE: app
+
+  myadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8081:80"
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=${MYSQL_HOST}
+    restart: always
+    depends_on:
+      - mysql-server
+    networks:
+      - devenv-network
+
+networks:
+  devenv-network:
+    ipam:
+      driver: default
