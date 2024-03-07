@@ -20,9 +20,9 @@ services:
     env_file:
       - .env
     volumes:
-      - ./code:/app
+      - ./code:/code
     # run app.py
-    command: /bin/bash -c "cd app; flask run -h 0.0.0.0;"
+    command: /bin/bash -c "cd code; flask run -h 0.0.0.0;"
 
   mysql-server:
     image: mysql:8.3
