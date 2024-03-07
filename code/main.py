@@ -19,4 +19,7 @@ def check_mysql_connect():
 
 @app.route("/")
 def index():
-    return f"{check_mysql_connect()}"
+    if check_mysql_connect():
+        return f"Connected Mysql!!"
+    else:
+        return f"Cannot connect Mysql!!"
