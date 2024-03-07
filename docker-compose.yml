@@ -29,6 +29,8 @@ services:
     networks:
       - devenv-network
     restart: always
+    volumes:
+      - ./mysql:/var/lib/mysql
     environment:
       # set root password
       MYSQL_ROOT_PASSWORD: strongPassw0rd
