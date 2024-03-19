@@ -1,5 +1,7 @@
 flask
 flask-cors
 flask-restful
+flask-session
+flask-wtf
 SQLAlchemy
 mysql-connector-python
