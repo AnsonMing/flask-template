@@ -5,3 +5,4 @@ flask-session
 flask-wtf
 SQLAlchemy
 mysql-connector-python
+redis
