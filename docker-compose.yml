@@ -1,4 +1,4 @@
-# flask + mysql + myadmin
+# flask + mysql + myadmin + redis
 version: "3.8"
 
 services:

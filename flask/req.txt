@@ -3,6 +3,7 @@ flask-cors
 flask-restful
 flask-session
 flask-wtf
+flask-caching
 SQLAlchemy
 mysql-connector-python
 redis
