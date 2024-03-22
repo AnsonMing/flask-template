@@ -1,7 +1,7 @@
 # _*_ coding: UTF-8 _*_
 
 # add lib
-from flask import Flask, Blueprint
+from flask import Flask
 
 # add views
 from views.main import *
@@ -11,7 +11,7 @@ from views.main import *
 app = Flask(__name__)
 
 # add blueprint
-# app.register_blueprint(main)
+app.register_blueprint(main)
 
 
 # add url

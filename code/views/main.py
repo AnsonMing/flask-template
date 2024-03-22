@@ -5,4 +5,4 @@ main = Blueprint("main", __name__)
 
 
 def index():
-    return "hi"
+    return render_template("main/index.html", title="Demo", content="Hello !!!")
