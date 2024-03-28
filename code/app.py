@@ -11,7 +11,7 @@ from views.main import *
 app = Flask(__name__)
 
 # add blueprint
-app.register_blueprint(main)
+# app.register_blueprint(main)
 
 
 # add url
